@@ -9,6 +9,7 @@
 #include "./python_pin.h"
 #include <strings.h>
 #include <stdlib.h>
+using namespace std;
 
 void add_hook(PyObject*** hooks, PyObject* new_hook) {
     PyObject** hooks_list = *hooks;
@@ -208,38 +209,38 @@ int main(int argc, char** argv) {
     PyModule_AddIntConstant(pin_module, "IARG_PRESERVE", IARG_PRESERVE);
     PyModule_AddIntConstant(pin_module, "IARG_RETURN_REGS", IARG_RETURN_REGS);
     PyModule_AddIntConstant(pin_module, "IARG_CALL_ORDER", IARG_CALL_ORDER);
-    PyModule_AddIntConstant(pin_module, "IARG_REG_NAT_VALUE", IARG_REG_NAT_VALUE);
-    PyModule_AddIntConstant(pin_module, "IARG_REG_OUTPUT_FRAME_VALUE", IARG_REG_OUTPUT_FRAME_VALUE);
-    PyModule_AddIntConstant(pin_module, "IARG_REG_OUTPUT_FRAME_REFERENCE", IARG_REG_OUTPUT_FRAME_REFERENCE);
+    // PyModule_AddIntConstant(pin_module, "IARG_REG_NAT_VALUE", IARG_REG_NAT_VALUE);
+    // PyModule_AddIntConstant(pin_module, "IARG_REG_OUTPUT_FRAME_VALUE", IARG_REG_OUTPUT_FRAME_VALUE);
+    // PyModule_AddIntConstant(pin_module, "IARG_REG_OUTPUT_FRAME_REFERENCE", IARG_REG_OUTPUT_FRAME_REFERENCE);
     PyModule_AddIntConstant(pin_module, "IARG_IARGLIST", IARG_IARGLIST);
     PyModule_AddIntConstant(pin_module, "IARG_FAST_ANALYSIS_CALL", IARG_FAST_ANALYSIS_CALL);
-    PyModule_AddIntConstant(pin_module, "IARG_SYSCALL_ARG0", IARG_SYSCALL_ARG0);
-    PyModule_AddIntConstant(pin_module, "IARG_SYSCALL_ARGBASE", IARG_SYSCALL_ARGBASE);
-    PyModule_AddIntConstant(pin_module, "IARG_SYSCALL_ARG1", IARG_SYSCALL_ARG1);
-    PyModule_AddIntConstant(pin_module, "IARG_SYSCALL_ARG2", IARG_SYSCALL_ARG2);
-    PyModule_AddIntConstant(pin_module, "IARG_SYSCALL_ARG3", IARG_SYSCALL_ARG3);
-    PyModule_AddIntConstant(pin_module, "IARG_SYSCALL_ARG4", IARG_SYSCALL_ARG4);
-    PyModule_AddIntConstant(pin_module, "IARG_SYSCALL_ARG5", IARG_SYSCALL_ARG5);
-    PyModule_AddIntConstant(pin_module, "IARG_SYSCALL_ARGLAST", IARG_SYSCALL_ARGLAST);
-    PyModule_AddIntConstant(pin_module, "IARG_G_RESULT0", IARG_G_RESULT0);
-    PyModule_AddIntConstant(pin_module, "IARG_G_RETBASE", IARG_G_RETBASE);
-    PyModule_AddIntConstant(pin_module, "IARG_G_RESULTLAST", IARG_G_RESULTLAST);
-    PyModule_AddIntConstant(pin_module, "IARG_G_ARG0_CALLEE", IARG_G_ARG0_CALLEE);
-    PyModule_AddIntConstant(pin_module, "IARG_G_ARGBASE_CALLEE", IARG_G_ARGBASE_CALLEE);
-    PyModule_AddIntConstant(pin_module, "IARG_G_ARG1_CALLEE", IARG_G_ARG1_CALLEE);
-    PyModule_AddIntConstant(pin_module, "IARG_G_ARG2_CALLEE", IARG_G_ARG2_CALLEE);
-    PyModule_AddIntConstant(pin_module, "IARG_G_ARG3_CALLEE", IARG_G_ARG3_CALLEE);
-    PyModule_AddIntConstant(pin_module, "IARG_G_ARG4_CALLEE", IARG_G_ARG4_CALLEE);
-    PyModule_AddIntConstant(pin_module, "IARG_G_ARG5_CALLEE", IARG_G_ARG5_CALLEE);
-    PyModule_AddIntConstant(pin_module, "IARG_G_ARGLAST_CALLEE", IARG_G_ARGLAST_CALLEE);
-    PyModule_AddIntConstant(pin_module, "IARG_G_ARG0_CALLER", IARG_G_ARG0_CALLER);
-    PyModule_AddIntConstant(pin_module, "IARG_G_ARGBASE_CALLER", IARG_G_ARGBASE_CALLER);
-    PyModule_AddIntConstant(pin_module, "IARG_G_ARG1_CALLER", IARG_G_ARG1_CALLER);
-    PyModule_AddIntConstant(pin_module, "IARG_G_ARG2_CALLER", IARG_G_ARG2_CALLER);
-    PyModule_AddIntConstant(pin_module, "IARG_G_ARG3_CALLER", IARG_G_ARG3_CALLER);
-    PyModule_AddIntConstant(pin_module, "IARG_G_ARG4_CALLER", IARG_G_ARG4_CALLER);
-    PyModule_AddIntConstant(pin_module, "IARG_G_ARG5_CALLER", IARG_G_ARG5_CALLER);
-    PyModule_AddIntConstant(pin_module, "IARG_G_ARGLAST_CALLER", IARG_G_ARGLAST_CALLER);
+    // PyModule_AddIntConstant(pin_module, "IARG_SYSCALL_ARG0", IARG_SYSCALL_ARG0);
+    // PyModule_AddIntConstant(pin_module, "IARG_SYSCALL_ARGBASE", IARG_SYSCALL_ARGBASE);
+    // PyModule_AddIntConstant(pin_module, "IARG_SYSCALL_ARG1", IARG_SYSCALL_ARG1);
+    // PyModule_AddIntConstant(pin_module, "IARG_SYSCALL_ARG2", IARG_SYSCALL_ARG2);
+    // PyModule_AddIntConstant(pin_module, "IARG_SYSCALL_ARG3", IARG_SYSCALL_ARG3);
+    // PyModule_AddIntConstant(pin_module, "IARG_SYSCALL_ARG4", IARG_SYSCALL_ARG4);
+    // PyModule_AddIntConstant(pin_module, "IARG_SYSCALL_ARG5", IARG_SYSCALL_ARG5);
+    // PyModule_AddIntConstant(pin_module, "IARG_SYSCALL_ARGLAST", IARG_SYSCALL_ARGLAST);
+    // PyModule_AddIntConstant(pin_module, "IARG_G_RESULT0", IARG_G_RESULT0);
+    // PyModule_AddIntConstant(pin_module, "IARG_G_RETBASE", IARG_G_RETBASE);
+    // PyModule_AddIntConstant(pin_module, "IARG_G_RESULTLAST", IARG_G_RESULTLAST);
+    // PyModule_AddIntConstant(pin_module, "IARG_G_ARG0_CALLEE", IARG_G_ARG0_CALLEE);
+    // PyModule_AddIntConstant(pin_module, "IARG_G_ARGBASE_CALLEE", IARG_G_ARGBASE_CALLEE);
+    // PyModule_AddIntConstant(pin_module, "IARG_G_ARG1_CALLEE", IARG_G_ARG1_CALLEE);
+    // PyModule_AddIntConstant(pin_module, "IARG_G_ARG2_CALLEE", IARG_G_ARG2_CALLEE);
+    // PyModule_AddIntConstant(pin_module, "IARG_G_ARG3_CALLEE", IARG_G_ARG3_CALLEE);
+    // PyModule_AddIntConstant(pin_module, "IARG_G_ARG4_CALLEE", IARG_G_ARG4_CALLEE);
+    // PyModule_AddIntConstant(pin_module, "IARG_G_ARG5_CALLEE", IARG_G_ARG5_CALLEE);
+    // PyModule_AddIntConstant(pin_module, "IARG_G_ARGLAST_CALLEE", IARG_G_ARGLAST_CALLEE);
+    // PyModule_AddIntConstant(pin_module, "IARG_G_ARG0_CALLER", IARG_G_ARG0_CALLER);
+    // PyModule_AddIntConstant(pin_module, "IARG_G_ARGBASE_CALLER", IARG_G_ARGBASE_CALLER);
+    // PyModule_AddIntConstant(pin_module, "IARG_G_ARG1_CALLER", IARG_G_ARG1_CALLER);
+    // PyModule_AddIntConstant(pin_module, "IARG_G_ARG2_CALLER", IARG_G_ARG2_CALLER);
+    // PyModule_AddIntConstant(pin_module, "IARG_G_ARG3_CALLER", IARG_G_ARG3_CALLER);
+    // PyModule_AddIntConstant(pin_module, "IARG_G_ARG4_CALLER", IARG_G_ARG4_CALLER);
+    // PyModule_AddIntConstant(pin_module, "IARG_G_ARG5_CALLER", IARG_G_ARG5_CALLER);
+    // PyModule_AddIntConstant(pin_module, "IARG_G_ARGLAST_CALLER", IARG_G_ARGLAST_CALLER);
     PyModule_AddIntConstant(pin_module, "IARG_MEMORYOP_EA", IARG_MEMORYOP_EA);
     PyModule_AddIntConstant(pin_module, "IARG_FILE_NAME", IARG_FILE_NAME);
     PyModule_AddIntConstant(pin_module, "IARG_LINE_NO", IARG_LINE_NO);

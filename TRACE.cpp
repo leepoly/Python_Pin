@@ -13,12 +13,12 @@ PyObject* Python_TRACE_Address(PyObject* self, PyObject* args) {
 }
 
 /* VERIFIED */
-PyObject* Python_TRACE_Original(PyObject* self, PyObject* args) {
-    PyObject* trace;
-    PyArg_ParseTuple(args, "O",&trace);
-
-    return Py_BuildValue("k", TRACE_Original((TRACE)PyInt_AsLong(trace)));
-}
+// PyObject* Python_TRACE_Original(PyObject* self, PyObject* args) {
+//     PyObject* trace;
+//     PyArg_ParseTuple(args, "O",&trace);
+// 
+//     return Py_BuildValue("k", TRACE_Original((TRACE)PyInt_AsLong(trace)));
+// }
 
 /* VERIFIED */
 PyObject* Python_TRACE_BblHead(PyObject* self, PyObject* args) {
@@ -75,11 +75,11 @@ PyObject* Python_TRACE_NumIns(PyObject* self, PyObject* args) {
 }
 
 /* VERIFIED */
-PyObject* Python_TRACE_StubSize(PyObject* self, PyObject* args) {
-    PyObject* trace;
-    PyArg_ParseTuple(args, "O",&trace);
-	return Py_BuildValue("k", TRACE_StubSize(*(TRACE*)PyInt_AsLong(trace)));
-}
+// PyObject* Python_TRACE_StubSize(PyObject* self, PyObject* args) {
+//     PyObject* trace;
+//     PyArg_ParseTuple(args, "O",&trace);
+// 	return Py_BuildValue("k", TRACE_StubSize(*(TRACE*)PyInt_AsLong(trace)));
+// }
 
 /* NVERIFIED */
 PyObject* Python_TRACE_HasFallThrough(PyObject* self, PyObject* args) {

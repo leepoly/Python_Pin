@@ -79,7 +79,7 @@ PyObject* Python_IMG_Entry(PyObject* self, PyObject* args) {
     PyObject* img;
     PyArg_ParseTuple(args, "O", &img);
     IMG img_object = *(IMG*)PyInt_AsLong(img);
-    return Py_BuildValue("k", IMG_Entry(img_object));
+    return Py_BuildValue("k", IMG_EntryAddress(img_object));
 }
 
 PyObject* Python_IMG_Name(PyObject* self, PyObject* args) {

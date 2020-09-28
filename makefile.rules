@@ -81,13 +81,14 @@ LIB_ROOTS :=
 #
 ###############3
 
-CUSTOM_PYTHON_FLAGS := /opt/Python-2.7.8/libpython2.7.so.1.0 -L/opt/Python-2.7.8/build/ -L/opt/Python-2.7.8/ -L/opt/Python-2.7.8/build/lib.linux-x86_64-2.7 -fPIC -I/opt/Python-2.7.8/Include -rdynamic -I/opt/Python-2.7.8 -Xlinker -export-dynamic
-REGULAR_PYTHON_FLAGS := -lpython2.7 -I/usr/include/python2.7 -rdynamic
-ifeq ($(CUSTOM_PYTHON),true)
-    PYTHON_FLAGS := $(CUSTOM_PYTHON_FLAGS)
-else
-    PYTHON_FLAGS := $(REGULAR_PYTHON_FLAGS)
-endif
+# -I/opt/Python-2.7.8/Include
+PYTHON_SRC_PATH := /home/liyiwei/tools/Python-2.7.8
+PYTHON_PATH := /home/liyiwei/tools/python2
+CUSTOM_PYTHON_FLAGS := $(PYTHON_PATH)/lib/libpython2.7.so.1.0 -L$(PYTHON_SRC_PATH)/build/ -L$(PYTHON_PATH)/lib -L$(PYTHON_SRC_PATH)/build/lib.linux-x86_64-2.7 -I$(PYTHON_SRC_PATH)/Include -rdynamic -I$(PYTHON_PATH)/include/python2.7 -Xlinker -export-dynamic -fPIC
+
+REGULAR_PYTHON_FLAGS := -rdynamic -nostdlib -static -L/usr/lib/python2.7/config-x86_64-linux-gnu -L/usr/lib -lpython2.7 -lpthread -ldl  -lutil -lm  -Xlinker -export-dynamic -Wl,-O1 -Wl,-Bsymbolic-functions -I/usr/include/python2.7 -I/usr/include/x86_64-linux-gnu/python2.7  -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fstack-protector-strong -Wformat -Werror=format-security  -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes 
+# REGULAR_PYTHON_FLAGS := -lpython2.7 -L/usr/lib/x86_64-linux-gnu/ -I/usr/include/python2.7 -rdynamic
+PYTHON_FLAGS := $(CUSTOM_PYTHON_FLAGS)
 
 # Build the intermediate object file.
 $(OBJDIR)Python_Pin$(OBJ_SUFFIX): Python_Pin.cpp

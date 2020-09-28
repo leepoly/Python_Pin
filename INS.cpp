@@ -292,27 +292,27 @@ PyObject* Python_INS_IsDirectCall(PyObject* self, PyObject* args) {
     }
 }
 
-PyObject* Python_INS_IsDirectBranchOrCall(PyObject* self, PyObject* args) {
+PyObject* Python_INS_IsDirectControlFlow(PyObject* self, PyObject* args) {
     PyObject* ins;
     PyArg_ParseTuple(args, "k", &ins);
     INS ins_object = *(INS*) ins;
-    if (INS_IsDirectBranchOrCall(ins_object)) {
+    if (INS_IsDirectControlFlow(ins_object)) {
         return Py_BuildValue("O", Py_True);
     } else {
         return Py_BuildValue("O", Py_False);
     }
 }
 
-PyObject* Python_INS_IsBranchOrCall(PyObject* self, PyObject* args) {
-    PyObject* ins;
-    PyArg_ParseTuple(args, "k", &ins);
-    INS ins_object = *(INS*) ins;
-    if (INS_IsBranchOrCall(ins_object)) {
-        return Py_BuildValue("O", Py_True);
-    } else {
-        return Py_BuildValue("O", Py_False);
-    }
-}
+// PyObject* Python_INS_IsBranchOrCall(PyObject* self, PyObject* args) {
+//     PyObject* ins;
+//     PyArg_ParseTuple(args, "k", &ins);
+//     INS ins_object = *(INS*) ins;
+//     if (INS_IsBranchOrCall(ins_object)) {
+//         return Py_BuildValue("O", Py_True);
+//     } else {
+//         return Py_BuildValue("O", Py_False);
+//     }
+// }
 
 PyObject* Python_INS_Stutters(PyObject* self, PyObject* args) {
     PyObject* ins;
@@ -391,11 +391,11 @@ PyObject* Python_INS_IsAtomicUpdate(PyObject* self, PyObject* args) {
     }
 }
 
-PyObject* Python_INS_IsIndirectBranchOrCall(PyObject* self, PyObject* args) {
+PyObject* Python_INS_IsIndirectControlFlow(PyObject* self, PyObject* args) {
     PyObject* ins;
     PyArg_ParseTuple(args, "k", &ins);
     INS ins_object = *(INS*) ins;
-    if (INS_IsIndirectBranchOrCall(ins_object)) {
+    if (INS_IsIndirectControlFlow(ins_object)) {
         return Py_BuildValue("O", Py_True);
     } else {
         return Py_BuildValue("O", Py_False);
@@ -683,11 +683,11 @@ PyObject* Python_INS_Size(PyObject* self, PyObject* args) {
     return Py_BuildValue("k", INS_Size(ins_object));
 }
 
-PyObject* Python_INS_DirectBranchOrCallTargetAddress(PyObject* self, PyObject* args) {
+PyObject* Python_INS_DirectControlFlowTargetAddress(PyObject* self, PyObject* args) {
     PyObject* ins;
     PyArg_ParseTuple(args, "k", &ins);
     INS ins_object = *(INS*) ins;
-    return Py_BuildValue("k", INS_DirectBranchOrCallTargetAddress(ins_object));
+    return Py_BuildValue("k", INS_DirectControlFlowTargetAddress(ins_object));
 }
 
 PyObject* Python_INS_NextAddress(PyObject* self, PyObject* args) {
@@ -902,16 +902,19 @@ PyObject* Python_INS_IsMaskMov(PyObject* self, PyObject* args) {
     }
 }
 
-PyObject* Python_INS_IsMaskedJump(PyObject* self, PyObject* args) {
-    PyObject* ins;
-    PyArg_ParseTuple(args, "k", &ins);
-    INS ins_object = *(INS*) ins;
-    if (INS_IsMaskedJump(ins_object)) {
-        return Py_BuildValue("O", Py_True);
-    } else {
-        return Py_BuildValue("O", Py_False);
-    }
-}
+// Note (Yiwei, 200927): The following PIN api seems deprecated in 3.11
+// (pin manual 97998 not found). But this API change is not documented.
+
+// PyObject* Python_INS_IsMaskedJump(PyObject* self, PyObject* args) {
+//     PyObject* ins;
+//     PyArg_ParseTuple(args, "k", &ins);
+//     INS ins_object = *(INS*) ins;
+//     if (INS_IsMaskedJump(ins_object)) {
+//         return Py_BuildValue("O", Py_True);
+//     } else {
+//         return Py_BuildValue("O", Py_False);
+//     }
+// }
 
 PyObject* Python_INS_RepCountRegister(PyObject* self, PyObject* args) {
     PyObject* ins;
